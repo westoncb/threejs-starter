@@ -1,4 +1,4 @@
-This is a probably somewhat quirky template/skeleton for three.js projects.
+This is a probably somewhat quirky template/skeleton for three.js projects. Sets up a scene with a perspective camera looking at a rotating cube. Uses OrbitControls, adds the three js stat tracker, and dat.gui. The canvas is set up to match the size of a dom element whose id you specify, and will resize when the window is resized. 
 
 To run:
 - `npm install`
