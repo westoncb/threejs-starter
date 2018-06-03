@@ -2,6 +2,7 @@ const THREE = require('three');
 const Stats = require('stats-js');
 const InputTransformer = require('./inputTransformer');
 const dat = require('dat.GUI');
+const OrbitControls = require('three-orbit-controls')(THREE);
 
 window.onload = () => {
 	const basicCanvas = new BasicCanvas('canvas-container');
@@ -26,7 +27,6 @@ class BasicCanvas {
 		const geometry = new THREE.BoxBufferGeometry(5, 5, 5);
 		const material = new THREE.MeshStandardMaterial({color: 0x556677, metalness: 0.6, roughness: 0.4});
 		this.testCube = new THREE.Mesh(geometry, material);
-		this.testCube.position.z = -15;
 		this.scene.add(this.testCube);
 	}
 
@@ -48,7 +48,17 @@ class BasicCanvas {
 	    this.near = 1;
 	    this.far = 2000;
 	    this.camera = new THREE.PerspectiveCamera( 45, this.state.canvasWidth / this.state.canvasHeight, this.near, this.far );
+	    this.camera.position.z = 15;
+	    this.camera.lookAt(new THREE.Vector3(0, 0, 0));
 	    this.scene.add(this.camera);
+
+        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+        this.controls.enableDamping = true;
+    	this.controls.dampingFactor = 0.25;
+    	this.controls.screenSpacePanning = false;
+    	this.controls.minDistance = 1;
+    	this.controls.maxDistance = 200;
+    	this.controls.maxPolarAngle = Math.PI / 2;
 
 	    const lightTarget = new THREE.Object3D();
 	    lightTarget.position.set(-1, -1, -10);
@@ -77,6 +87,8 @@ class BasicCanvas {
 
 	    this.testCube.rotation.y += Math.PI / 200;
 	    this.testCube.rotation.x += Math.PI / 500;
+
+	    this.controls.update();
 	    
 	    requestAnimationFrame( this.animate.bind(this) );
 
