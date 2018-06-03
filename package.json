@@ -1,0 +1,13 @@
+{
+  "name": "threejs-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/westoncb/threejs-starter",
+  "author": "Weston C. Beecroft",
+  "license": "MIT",
+  "dependencies": {
+    "stats-js": "^1.0.0-alpha1",
+    "three": "^0.88.0",
+    "watchify": "^3.9.0"
+  }
+}
