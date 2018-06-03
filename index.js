@@ -1,6 +1,7 @@
 const THREE = require('three');
 const Stats = require('stats-js');
 const InputTransformer = require('./inputTransformer');
+const dat = require('dat.GUI');
 
 window.onload = () => {
 	const basicCanvas = new BasicCanvas('canvas-container');
@@ -67,6 +68,8 @@ class BasicCanvas {
 	    window.addEventListener( 'resize', this.onWindowResize.bind(this), false );
 
 	    this.inputTransformer = new InputTransformer(this.renderer.domElement, this.camera, this.scene);
+
+	    this.datgui = new dat.GUI( { width: 350 } );
 	}
 
 	animate(time) {
