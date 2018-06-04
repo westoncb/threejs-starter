@@ -5,6 +5,6 @@ To run:
 - `watchify index.js -o './build/bundle.js'`
 - `npm i http-server`
 - `http-server -p <portNumber>`
-- Open browser at `http://localhost:<portNumber>` (I'd recommend using the Chrome 'LivePage' auto-reloading plugin)
+- Open browser at `http://localhost:<portNumber>`
 
 ![screenshot](http://symbolflux.com/images/threejs-starter.png)
